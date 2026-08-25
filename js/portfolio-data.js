@@ -26,12 +26,12 @@ const PORTFOLIO_DATA = {
         phone: "+91 9975195044",
         resumePdfUrl: "assets/Piyush_Gupta_Resume.pdf",
         
-        // Dynamic typewriter roles in the hero section
+        // Dynamic typewriter roles in the hero section (paired with "I am a ...")
         roles: [
             "Full Stack Developer",
             "MERN Stack Specialist",
             "REST API & Systems Designer",
-            "Assistive Tech & HCI Innovator"
+            "Smart Systems & HCI Innovator"
         ],
 
         // Social Media & Developer Profiles
@@ -150,7 +150,7 @@ const PORTFOLIO_DATA = {
                 "Built a full-stack document verification platform enabling users to upload, hash, and validate document authenticity.",
                 "Implemented SHA-256 cryptographic hashing to guarantee document integrity and detect tampering without storing raw file contents.",
                 "Designed and exposed REST APIs for upload, verification, and record management following clean resource-based conventions.",
-                "Built a responsive, accessible UI so verification works consistently across desktop and mobile devices."
+                "Built a responsive, accessible UI ensuring verification works seamlessly across desktop and mobile devices."
             ],
             techStack: ["React", "Node.js", "Express", "MongoDB", "SHA-256", "REST API"],
             githubUrl: "https://github.com",
@@ -169,7 +169,7 @@ const PORTFOLIO_DATA = {
                 "Designed an assistive communication system enabling users with severe motor disabilities to communicate using only eye blinks.",
                 "Built an Arduino-based sensing module using dual IR proximity sensors to reliably detect and debounce left, right, and both-eye blinks in real time.",
                 "Developed a Python serial bridge (pySerial, keyboard/pynput) to translate blink signals from the microcontroller into keyboard events.",
-                "Built a tab-based, fully blink-navigable web interface with scanning-style selection and integrated Web Speech API for text-to-speech output."
+                "Built a tab-based, blink-navigable web interface with scanning-style selection and integrated the Web Speech API for text-to-speech output."
             ],
             techStack: ["Arduino (C++)", "Python", "pySerial", "HTML5", "CSS3", "JavaScript", "Web Speech API"],
             githubUrl: "https://github.com",
@@ -183,11 +183,11 @@ const PORTFOLIO_DATA = {
             status: "Completed",
             featured: true,
             image: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=1000&auto=format&fit=crop",
-            tagline: "Desktop voting application with Tkinter GUI, relational MySQL storage, duplicate-vote prevention, and real-time tallying.",
+            tagline: "Desktop voting application featuring a Tkinter GUI, relational MySQL storage, duplicate-vote prevention, and real-time tallying.",
             highlights: [
                 "Built a desktop voting application with a Tkinter GUI covering candidate registration, voting, and result views.",
-                "Modeled a relational MySQL schema to reliably store voter, candidate, and result data.",
-                "Implemented duplicate-vote prevention and real-time tallying so results stay accurate as votes are cast."
+                "Modeled a relational MySQL schema to reliably store voter, candidate, and election result data.",
+                "Implemented duplicate-vote prevention and real-time tallying to ensure accurate, immediate results as votes are cast."
             ],
             techStack: ["Python", "Tkinter", "MySQL", "GUI Development"],
             githubUrl: "https://github.com",
@@ -347,7 +347,7 @@ const PORTFOLIO_DATA = {
     // ---------------------------------------------------------------------
     contact: {
         heading: "Let's Build Something Great",
-        description: "Have a project in mind, internship/job opportunity, or want to collaborate? Feel free to reach out directly.",
+        description: "Have a project in mind, an internship/job opportunity, or want to collaborate? Feel free to reach out directly.",
         email: "piyushgbra@gmail.com",
         phone: "+91 9975195044",
         location: "India"
