@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Piyush Gupta — Full Stack Developer specializing in responsive web applications, REST APIs, and assistive HCI systems.">
+    <meta name="keywords" content="Portfolio, Software Engineer, Full Stack Developer, Computer Science, React, Next.js, Node.js, Python, MongoDB, SQL">
+    <meta name="author" content="Piyush Gupta">
+
+    <title>Piyush Gupta — Full Stack Developer</title>
+
+    <!-- Font Awesome Icons Free CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts (Syne, Plus Jakarta Sans, JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- Interactive Canvas & Ambient Glow Background -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#about" class="logo">
+                <div class="logo-badge">P</div>
+                <span>Piyush<span class="logo-dot">.dev</span></span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                    <li><a href="#cv" class="nav-link">CV</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="cmd-palette-trigger" class="cmd-btn" title="Quick Command Palette (Ctrl+K)">
+                    <i class="fas fa-terminal"></i>
+                    <span>Cmd</span>
+                    <span class="cmd-badge">Ctrl+K</span>
+                </button>
+                <a href="#contact" class="btn btn-primary btn-sm shimmer-effect">Let's Talk</a>
+                <button class="mobile-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 1. Hero Section (#about) -->
+        <section id="about" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span id="status-text">Available for opportunities</span>
+                    </div>
+
+                    <!-- Profile Photo Avatar with Scanner Ring -->
+                    <div class="hero-avatar-wrapper reveal delay-1">
+                        <div class="avatar-ring">
+                            <img id="hero-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" alt="Piyush Kumar" class="avatar-img">
+                        </div>
+                    </div>
+
+                    <h1 class="hero-title reveal delay-2">
+                        Hi, I'm <span id="hero-name" class="text-gradient">Piyush Kumar</span>
+                    </h1>
+
+                    <div class="hero-roles-wrapper reveal delay-3">
+                        <span>I build as a</span>
+                        <div class="role-typing">
+                            <span id="typing-role"></span>
+                            <span class="typing-cursor"></span>
+                        </div>
+                    </div>
+
+                    <p id="hero-bio" class="hero-bio reveal delay-3">
+                        Engineering scalable web applications, robust cloud backends, and clean responsive interfaces with modern architectural principles.
+                    </p>
+
+                    <div class="hero-cta reveal delay-4">
+                        <a href="#projects" class="btn btn-primary shimmer-effect">
+                            <i class="fas fa-rocket"></i> View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Get in Touch
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats Ribbon -->
+                    <div id="hero-stats" class="hero-stats reveal delay-4">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Terminal Card -->
+                <div class="hero-visual reveal delay-2">
+                    <div class="terminal-card float-animation">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="t-btn red"></span>
+                                <span class="t-btn yellow"></span>
+                                <span class="t-btn green"></span>
+                            </div>
+                            <span class="terminal-title">piyush@core:~</span>
+                            <i class="fas fa-shield-alt" style="color: var(--text-muted); font-size: 0.8rem;"></i>
+                        </div>
+                        <div id="terminal-content" class="terminal-body">
+                            <!-- Rendered dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Technical Arsenal (#skills) -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-comment">// Skills</span>
+                    <h2 class="section-title">Technical Arsenal</h2>
+                    <p class="section-desc">A curated toolkit of modern frameworks, scalable databases, and security utilities.</p>
+                </div>
+
+                <!-- Bento Grid Skills -->
+                <div id="skills-grid" class="skills-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Things I've Built (#projects) -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-comment">// Projects</span>
+                    <h2 class="section-title">Things I've Built</h2>
+                    <p class="section-desc">A showcase of full-stack platforms, automated cloud tools, and hardware integrations.</p>
+                </div>
+
+                <div id="projects-grid" class="projects-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Certifications & Milestones (#certificates) -->
+        <section id="certificates" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-comment">// Certificates</span>
+                    <h2 class="section-title">Certifications & Badges</h2>
+                    <p class="section-desc">Verified accreditations, cloud competencies, and algorithmic achievements.</p>
+                </div>
+
+                <div id="certs-grid" class="certs-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <div class="section-header reveal" style="margin-top: 30px; margin-bottom: 24px;">
+                    <span class="section-comment">// Achievements</span>
+                    <h3 style="font-size: 1.5rem;">Key Milestones</h3>
+                </div>
+
+                <div id="achievements-grid" class="achievements-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Curriculum Vitae (#cv) -->
+        <section id="cv" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-comment">// Resume</span>
+                    <h2 class="section-title">Curriculum Vitae</h2>
+                    <p class="section-desc">View full credentials inline or download a verified PDF copy.</p>
+                </div>
+
+                <div id="cv-content" class="glass-card cv-card reveal">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Academic Background & Training (#education) -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-comment">// Education</span>
+                    <h2 class="section-title">Academic Background</h2>
+                    <p class="section-desc">Formal coursework, academic institutions, and computational engineering foundations.</p>
+                </div>
+
+                <div id="edu-grid" class="edu-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <div class="section-header reveal" style="margin-top: 24px; margin-bottom: 24px;">
+                    <span class="section-comment">// Training</span>
+                    <h3 style="font-size: 1.5rem;">Professional Training</h3>
+                </div>
+
+                <div id="training-grid" class="edu-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Services (#services) -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-comment">// Services</span>
+                    <h2 class="section-title">What Can I Help With</h2>
+                    <p class="section-desc">Areas where I deliver measurable engineering value and end-to-end technical execution.</p>
+                </div>
+
+                <div id="services-grid" class="services-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Get in Touch (#contact) -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-comment">// Contact</span>
+                    <h2 class="section-title">Let's Build Something Great</h2>
+                    <p class="section-desc">Have a question, project proposal, or want to connect? My inbox is always open.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Direct Info Card -->
+                    <div class="glass-card contact-info-card reveal delay-1">
+                        <div>
+                            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Direct Channels</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.92rem;">Feel free to reach out directly via email or phone with 1-click copy.</p>
+                            
+                            <div class="contact-direct-items">
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                    <div class="contact-meta">
+                                        <span>Email Address</span>
+                                        <strong id="contact-email-text">piyush.dev.contact@example.com</strong>
+                                    </div>
+                                    <button class="copy-btn active-scale" data-copy-target="contact-email-text" title="Copy to clipboard">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                                    <div class="contact-meta">
+                                        <span>Phone</span>
+                                        <strong id="contact-phone-text">+91 98765 43210</strong>
+                                    </div>
+                                    <button class="copy-btn active-scale" data-copy-target="contact-phone-text" title="Copy to clipboard">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+                                    <div class="contact-meta">
+                                        <span>Location</span>
+                                        <strong id="contact-location-text">India (Remote)</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="font-size: 0.9rem; margin-bottom: 12px; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Profiles & Networks</h4>
+                            <div id="social-chips" class="social-chips">
+                                <!-- Rendered dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Contact Form -->
+                    <div class="glass-card contact-form-card reveal delay-2">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="form-name" class="form-label">Your Name</label>
+                                <input type="text" id="form-name" class="form-control" placeholder="e.g. Alex Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email" class="form-label">Your Email</label>
+                                <input type="email" id="form-email" class="form-control" placeholder="alex@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message" class="form-label">Message</label>
+                                <textarea id="form-message" class="form-control" placeholder="Tell me about your project, idea, or inquiry..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary shimmer-effect" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="footer-text">
+                Designed & Engineered by <strong style="color: var(--text-main);">Piyush Gupta</strong> • Built with Modern Web Standards.
+            </p>
+            <a href="#about" class="back-to-top" title="Back to top" aria-label="Back to top">
+                <i class="fas fa-chevron-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Command Palette Overlay Modal -->
+    <div id="cmd-palette-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="cmd-palette-header">
+                <i class="fas fa-search" style="color: var(--accent-indigo);"></i>
+                <input type="text" id="cmd-input" class="cmd-input" placeholder="Type a command or jump to section..." autocomplete="off">
+                <button id="cmd-close-btn" class="cmd-badge" style="cursor: pointer; background:none; border:none; color:var(--text-muted);">
+                    <kbd>ESC</kbd>
+                </button>
+            </div>
+            <ul id="cmd-list" class="cmd-list">
+                <!-- Dynamically populated -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/portfolio-data.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
