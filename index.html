@@ -77,12 +77,12 @@
                     <!-- Profile Photo Avatar with Scanner Ring -->
                     <div class="hero-avatar-wrapper reveal delay-1">
                         <div class="avatar-ring">
-                            <img id="hero-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" alt="Piyush Kumar" class="avatar-img">
+                            <img id="hero-photo" src="assets/profile.jpg" alt="Piyush Gupta" class="avatar-img">
                         </div>
                     </div>
 
                     <h1 class="hero-title reveal delay-2">
-                        Hi, I'm <span id="hero-name" class="text-gradient">Piyush Kumar</span>
+                        Hi, I'm <span id="hero-name" class="text-gradient">Piyush Gupta</span>
                     </h1>
 
                     <div class="hero-roles-wrapper reveal delay-3">
@@ -313,9 +313,10 @@
                                 <label for="form-message" class="form-label">Message</label>
                                 <textarea id="form-message" class="form-control" placeholder="Tell me about your project, idea, or inquiry..." required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary shimmer-effect" style="width: 100%;">
-                                <i class="fas fa-paper-plane"></i> Send Message
+                            <button type="submit" id="form-submit-btn" class="btn btn-primary shimmer-effect" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> <span id="submit-btn-text">Send Message</span>
                             </button>
+                            <div id="form-status-msg" style="margin-top: 14px; font-size: 0.88rem; display: none; text-align: center;"></div>
                         </form>
                     </div>
                 </div>

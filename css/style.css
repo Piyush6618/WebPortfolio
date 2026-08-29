@@ -493,13 +493,18 @@ p {
 }
 
 .avatar-ring {
-    width: 72px;
-    height: 72px;
+    width: 104px;
+    height: 104px;
     border-radius: 50%;
-    padding: 3px;
-    border: 2px solid rgba(99, 102, 241, 0.4);
-    box-shadow: 0 0 25px var(--shadow-glow);
+    padding: 4px;
+    border: 2px solid rgba(99, 102, 241, 0.5);
+    box-shadow: 0 0 30px var(--shadow-glow);
     animation: photo-glow 4s ease-in-out infinite alternate;
+    transition: transform 0.3s ease;
+}
+
+.avatar-ring:hover {
+    transform: scale(1.05);
 }
 
 .avatar-img {
@@ -1426,6 +1431,11 @@ textarea.form-control {
 
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .avatar-ring {
+        width: 88px;
+        height: 88px;
     }
 
     .projects-grid {

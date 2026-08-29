@@ -347,22 +347,82 @@ function renderContact() {
         });
     });
 
-    // Contact Form
+    // Contact Form Handler with FormSubmit AJAX Delivery + Mailto Fallback
     const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('form-submit-btn');
+    const submitText = document.getElementById('submit-btn-text');
+    const statusMsg = document.getElementById('form-status-msg');
+
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
-            const message = document.getElementById('form-message').value;
+            const name = document.getElementById('form-name').value.trim();
+            const email = document.getElementById('form-email').value.trim();
+            const message = document.getElementById('form-message').value.trim();
 
             if (!name || !email || !message) {
-                showToast("Please fill in all fields.", "warning");
+                showToast("Please fill in all required fields.", "warning");
                 return;
             }
 
-            showToast(`Thank you, ${name}! Your message has been sent.`, "success");
-            form.reset();
+            // Set Loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+            }
+            if (submitText) submitText.textContent = "Sending Message...";
+            if (statusMsg) {
+                statusMsg.style.display = 'none';
+                statusMsg.textContent = '';
+            }
+
+            const targetEmail = c.email || p.email || 'piyushgbra@gmail.com';
+
+            try {
+                const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        _subject: `New Portfolio Message from ${name}`,
+                        message: message,
+                        _captcha: "false"
+                    })
+                });
+
+                if (response.ok) {
+                    showToast(`Thank you, ${name}! Your message has been sent.`, "success");
+                    if (statusMsg) {
+                        statusMsg.style.display = 'block';
+                        statusMsg.style.color = '#34d399';
+                        statusMsg.innerHTML = `<i class="fas fa-check-circle"></i> Message sent successfully! I will get back to you soon.`;
+                    }
+                    form.reset();
+                } else {
+                    throw new Error("FormSubmit delivery failed");
+                }
+            } catch (err) {
+                console.warn("AJAX submission failed, falling back to mailto client:", err);
+                const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent("Portfolio Message from " + name)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+                window.location.href = mailtoUrl;
+                
+                showToast(`Opening your email client to send message...`, "info");
+                if (statusMsg) {
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.color = '#38bdf8';
+                    statusMsg.innerHTML = `<i class="fas fa-envelope-open-text"></i> Email client launched! Alternatively, email directly to <strong>${targetEmail}</strong>.`;
+                }
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                }
+                if (submitText) submitText.textContent = "Send Message";
+            }
         });
     }
 }

@@ -20,7 +20,7 @@ const PORTFOLIO_DATA = {
             available: true,
             text: "Open for full-stack roles, projects & collaboration"
         },
-        photoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+        photoUrl: "assets/profile.jpg",
         location: "India",
         email: "piyushgbra@gmail.com",
         phone: "+91 9975195044",
