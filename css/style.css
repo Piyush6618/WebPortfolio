@@ -493,12 +493,12 @@ p {
 }
 
 .avatar-ring {
-    width: 104px;
-    height: 104px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    padding: 4px;
+    padding: 5px;
     border: 2px solid rgba(99, 102, 241, 0.5);
-    box-shadow: 0 0 30px var(--shadow-glow);
+    box-shadow: 0 0 35px var(--shadow-glow);
     animation: photo-glow 4s ease-in-out infinite alternate;
     transition: transform 0.3s ease;
 }
@@ -1434,8 +1434,8 @@ textarea.form-control {
     }
 
     .avatar-ring {
-        width: 88px;
-        height: 88px;
+        width: 110px;
+        height: 110px;
     }
 
     .projects-grid {
