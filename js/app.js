@@ -267,10 +267,17 @@ function renderEducation() {
 
     container.innerHTML = PORTFOLIO_DATA.education.map((edu, idx) => `
         <div class="glass-card edu-card reveal delay-${idx + 1}">
-            <span class="edu-period">${edu.period}</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span class="edu-period">${edu.period}</span>
+                ${edu.percentageBadge ? `
+                    <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px;">
+                        Score: ${edu.percentageBadge}
+                    </span>
+                ` : ''}
+            </div>
             <h3 class="edu-degree">${edu.degree}</h3>
             <div class="edu-institution">${edu.institution}</div>
-            ${edu.score ? `<div class="edu-score text-gradient-cyan">${edu.score}</div>` : ''}
+            ${edu.score && !edu.percentageBadge ? `<div class="edu-score text-gradient-cyan">${edu.score}</div>` : ''}
             <p class="edu-desc">${edu.description}</p>
         </div>
     `).join('');
@@ -723,19 +730,23 @@ function openCVModal() {
    12. 3D CARD TILT & SCROLL SPY
    ========================================================================== */
 function initTiltEffect() {
-    if (window.innerWidth < 992) return;
-
     document.querySelectorAll('.glass-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -5;
-            const rotateY = ((x - centerX) / centerX) * 5;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            // Dynamic mouse spotlight effect
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+
+            if (window.innerWidth >= 992) {
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -4;
+                const rotateY = ((x - centerX) / centerX) * 4;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            }
         });
 
         card.addEventListener('mouseleave', () => {
