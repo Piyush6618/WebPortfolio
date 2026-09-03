@@ -149,7 +149,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
+    font-weight: 800;
     color: var(--text-main);
+    letter-spacing: -0.035em;
     line-height: 1.2;
 }
 
@@ -1473,9 +1475,21 @@ textarea.form-control {
     .achievements-grid {
         grid-template-columns: 1fr;
     }
+    
+    .section {
+        padding: 70px 0;
+    }
 }
 
 @media (max-width: 768px) {
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section-title {
+        font-size: clamp(1.8rem, 8vw, 2.2rem);
+    }
+    
     .nav-links {
         display: none;
         position: absolute;
@@ -1483,6 +1497,7 @@ textarea.form-control {
         left: 0;
         width: 100%;
         background: rgba(7, 8, 13, 0.96);
+        background: rgba(7, 8, 13, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 24px;
@@ -1504,9 +1519,41 @@ textarea.form-control {
 
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .projects-grid {
+    .projects-grid, .certs-grid, .edu-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cv-card {
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contact-info-card, .contact-form-card {
+        padding: 24px;
+    }
+    
+    .terminal-body {
+        padding: 16px;
+        font-size: 0.76rem;
+        line-height: 1.6;
+        overflow-x: auto;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+    
+    .hero-roles-wrapper {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        flex-wrap: wrap;
     }
 }
